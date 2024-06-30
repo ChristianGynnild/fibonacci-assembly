@@ -11,31 +11,20 @@ E (dl)
 
 _start:
     mov al, 0
-    mov bl, 0
+    mov bl, 1
     mov ah, 0
-    mov dh, 0
+    mov dh, 1
     mov dl, 0
 
-    mov dl, 1
-    mov bl, dl
-
-    mov dh, 1
     mov ecx, 11 /* 11 + 2 = 13th fibonacci */
 
     jmp fibonacci
 
-
-hello_world:
-    .asciz "Hello, world!\n"
-
-
 fibonacci:
-    mov dl, bl
-    mov ah, dl
+    mov ah, bl
     add bl, al 
 
-    mov dl, ah
-    mov al, dl
+    mov al, ah
 
     sub cl, dh
     
@@ -47,3 +36,4 @@ exit:
     mov rdi, 0
     mov di, bx
     syscall
+    
